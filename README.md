@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Introduction to Composer
 
 - Open your existing codespace (you shouldn't create a new one) [https://github.com/codespaces](https://github.com/codespaces).
@@ -137,3 +138,6 @@ $database = new Database(
 $conn = $database->getConnection();
 ```
 
+=======
+# php
+>>>>>>> afd457bc96b969b2edef778830d2078a650612de
