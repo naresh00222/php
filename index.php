@@ -1,8 +1,20 @@
 
 <?php
 
+require __DIR__ . '/vendor/autoload.php';
+
+use Mexitek\PHPColors\Color;
+
 // Reads the colour value from the submitted form
-$baseHex = $_POST['base'] ?? '#3498db';
+$baseHex = $_POST['base'] ?? '#3445db';
+
+//This code uses the PHPColors library
+$color = new Color($baseHex);
+$amount =(int) $_POST['amount'] ?? '10';
+$lighter = $color->lighten($amount);
+$darker = $color->darken($amount);
+// $complementary = $color->complementary();;
+
 
 ?>
 <!DOCTYPE html>
@@ -25,7 +37,7 @@ $baseHex = $_POST['base'] ?? '#3498db';
         <div class="form-ctrl">
         <label>
             Choose an amount to lighten/darken by:
-            <input type="number" name="amount" min="0" max="50" value="10">
+            <input type="number" name="amount" min="0" max="50" value="<?php echo $amount; ?>">
         </label>
     </div>
     <div class="form-ctrl">
@@ -49,6 +61,15 @@ $baseHex = $_POST['base'] ?? '#3498db';
                 <div class="swatch-hex"><?php echo $lighter ?></div>
             </div>
         </div>
+        <!-- Darker swatch -->
+         <div class="swatch">
+            <div class="swatch-color" style="background:<?php echo $darker; ?>;"></div>
+            <div class="swatch-info">
+                <div class="swatch-name">Darker</div>
+                <div class="swatch-hex"><?php echo $darker; ?></div>
+            </div>
+        </div>
+
 
 
     </div>

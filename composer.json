@@ -1,0 +1,5 @@
+{
+    "require": {
+        "mexitek/phpcolors": "^1.0"
+    }
+}
